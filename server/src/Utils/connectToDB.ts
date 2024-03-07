@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import path from "path";
 
-dotenv.config({ path: path.join("config", ".env") });
+dotenv.config({ path: "src/config/.env" });
 
 export async function connectToDB() {
     const mongoDB_Key = process.env.MONGO_URI;
