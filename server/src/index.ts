@@ -2,6 +2,7 @@ import express, { Response, Request } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { connectToDB } from "./Utils/connectToDB";
+import productsRouter from "./routes/productRoutes";
 
 const port: number = 3300;
 
@@ -20,9 +21,7 @@ connectToDB().catch(() => {
     throw new Error("Lỗi: ");
 });
 
-app.get("/v1/test", (req: Request, res: Response) => {
-  res.status(200).json({ message: "Success" });
-})
+app.use("/api/v1", productsRouter);
 
 app.listen(port, () => {
   console.log("Server đã chạy ở port: ", port);
