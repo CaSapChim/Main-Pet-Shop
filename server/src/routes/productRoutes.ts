@@ -1,10 +1,18 @@
 import express from "express";
-import { getProducts } from "../controllers/foods/getProducts";
-import { postProducts } from "../controllers/foods/postProducts";
+import { getFoodOnType, getProducts } from "../controllers/foods/getFoods";
+import { postProducts } from "../controllers/foods/postFoods";
+import { getPets } from "../controllers/pets/getPets";
+import { postPets } from "../controllers/pets/postPets";
 
 const productsRouter = express.Router();
 
-productsRouter.get("/food/products", getProducts);
-productsRouter.post("/food/newproducts", postProducts);
+// Products
+productsRouter.get("/foods", getProducts); // Get all foods
+productsRouter.get("/food/:type", getFoodOnType);
+productsRouter.post("/food/newproduct", postProducts);
+
+// Pets
+productsRouter.get("/pets", getPets); // Get all pets
+productsRouter.post("/pet/newpet", postPets);
 
 export default productsRouter;

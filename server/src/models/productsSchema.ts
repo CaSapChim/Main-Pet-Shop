@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const productsSchema = new mongoose.Schema({
+const foodSchema = new mongoose.Schema({
     type: { type: String, require: true },
     name: { type: String, require: true },
     price: { type: Number, require: true },
@@ -11,4 +11,14 @@ const productsSchema = new mongoose.Schema({
     taste: { type: String, require: true }
 }) 
 
-export const productsModel = mongoose.model("petFood", productsSchema);
+const petSchema = new mongoose.Schema({
+    type: { type: String, require: true },
+    name: { type: String, require: true },
+    price: { type: Number, require: true },
+    weight: { type: Number, require: true },
+    height: { type: Number, require: true },
+    desc: { type: String, require: true },
+})
+
+export const foodsModel = mongoose.model("petFood", foodSchema);
+export const petModel = mongoose.model("pet", petSchema);
